@@ -37,14 +37,45 @@ body {
 .card:hover {
     transform: scale(1.05);
 }
+
 .footer-logo {
-    font-family: 'Righteous', sans-serif;
     font-size: 1.5rem;
+    font-weight: bold;
     color: #fff;
     text-decoration: none;
 }
-.social-icons a {
+
+footer .social-icons a {
     color: #fff;
-    margin: 0 10px;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #17a2b8; 
+}
+
+footer p {
+    margin: 0;
+}
+
+.btn-whatsapp img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+
+#search-input {
+    width: 50%;
+    min-width: 300px;
+}
+
+#search-results {
+    margin-top: 20px;
     font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
 }

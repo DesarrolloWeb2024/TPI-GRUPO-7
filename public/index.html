@@ -8,13 +8,45 @@
     <!-- Fuentes y Bootstrap -->
     <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/style.css"> <!-- Vincula tu archivo CSS aquí -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- FontAwesome para los íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Estilos adicionales */
+        #cartItems li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        #viewCartBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1050;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <!-- Banner -->
-    <div class="banner">
-        🎉 ¡Descuentos increíbles este fin de semana! 🎉
-    </div>
+    <div class="banner">🎉 ¡Descuentos increíbles este fin de semana! 🎉</div>
 
     <!-- Header -->
     <header class="container py-4 text-center">
@@ -22,93 +54,166 @@
         <p>Av. Lisandro De La Torre 8243, Del Viso, Buenos Aires</p>
     </header>
 
-    <!-- Slider -->
+    <!-- Carrusel -->
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/campariaperitivo.jpg" class="d-block w-100" alt="Ganancia lata">
+                <img src="images/campariaperitivo.jpg" class="d-block w-100" alt="Imagen 1">
             </div>
             <div class="carousel-item">
-                <img src="images/jorgitoalfajor.png" class="d-block w-100" alt="Jorgito alfajor">
+                <img src="images/jorgitoalfajor.png" class="d-block w-100" alt="Imagen 2">
             </div>
             <div class="carousel-item">
-                <img src="images/krachitossnacks.jpg" class="d-block w-100" alt="Krachitos">
+                <img src="images/krachitossnacks.jpg" class="d-block w-100" alt="Imagen 3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
         </button>
+    </div>
+
+    <!-- Botón y Carrito -->
+    <div class="text-end me-3 mt-3">
+        <button id="viewCartBtn" class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+            🛒 Ver Carrito (<span id="cartItemCount">0</span>)
+        </button>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="cartOffcanvasLabel">Tu Carrito</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="cartItems" class="list-group mb-3"></ul>
+            <div class="text-end">
+                <p><strong>Total: $<span id="cartTotal">0</span></strong></p>
+                <button class="btn btn-success">Finalizar Compra</button>
+            </div>
+        </div>
     </div>
 
     <!-- Tienda Virtual -->
     <main class="container py-5">
         <h2 class="text-center mb-4" style="font-family: 'Righteous', sans-serif;">Nuestra Tienda</h2>
         <div class="row g-4">
+            <!-- Producto 1 -->
             <div class="col-md-3">
                 <div class="card">
                     <img src="images/panchos.jpeg" class="card-img-top" alt="Promo Panchos">
                     <div class="card-body text-center">
                         <h5 class="card-title">Promo 36 Super Panchos</h5>
-                        <p class="card-text">$29.500</p>
+                        <p class="card-text">$29500.00</p>
                         <button class="btn btn-primary">Añadir al carrito</button>
                     </div>
                 </div>
             </div>
+            <!-- Producto 2 -->
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/lechedescremada.png" class="card-img-top" alt="Leche Descremada">
+                    <img src="images/jorgitoalfajor.png" class="card-img-top" alt="Alfajores Jorgito">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Leche Descremada 1L</h5>
-                        <p class="card-text">$2.400</p>
+                        <h5 class="card-title">Alfajores Jorgito</h5>
+                        <p class="card-text">$1500.00</p>
                         <button class="btn btn-primary">Añadir al carrito</button>
                     </div>
                 </div>
             </div>
+            <!-- Producto 3 -->
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/playadito.jpg" class="card-img-top" alt="Yerba Playadito">
+                    <img src="images/campariaperitivo.jpg" class="card-img-top" alt="Campari Aperitivo">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Yerba Mate 500g</h5>
-                        <p class="card-text">$2.500</p>
+                        <h5 class="card-title">Campari Aperitivo</h5>
+                        <p class="card-text">$2500.00</p>
                         <button class="btn btn-primary">Añadir al carrito</button>
                     </div>
                 </div>
             </div>
+            <!-- Producto 4 -->
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/combofernet.png" class="card-img-top" alt="Combo Fernet">
+                    <img src="images/krachitossnacks.jpg" class="card-img-top" alt="Krachitos Snacks">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Combo Fernet + Coca + Hielo</h5>
-                        <p class="card-text">$20.500</p>
+                        <h5 class="card-title">Krachitos Snacks</h5>
+                        <p class="card-text">$1200.00</p>
                         <button class="btn btn-primary">Añadir al carrito</button>
                     </div>
-    
+                </div>
+            </div>
+            <!-- Producto 5 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="images/lechedescremada.png" class="card-img-top" alt="Leche La Serenisima 1L">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Leche descremada La Serenisima 1 L</h5>
+                        <p class="card-text">$2400.00</p>
+                        <button class="btn btn-primary">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 6 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="images/playadito.jpg" class="card-img-top" alt="yerba playadito">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Yerba Playadito 500 Gr</h5>
+                        <p class="card-text">$2500.00</p>
+                        <button class="btn btn-primary">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 7 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="images/cofler block.jpg" class="card-img-top" alt="cofler block">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Cofler Block 300 Gr</h5>
+                        <p class="card-text">$9400.00</p>
+                        <button class="btn btn-primary">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 8 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="images/combofernet.png" class="card-img-top" alt="Fernet y coca">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Fernet 1L + Coca Cola 1.75 ml</h5>
+                        <p class="card-text">$17400.00</p>
+                        <button class="btn btn-primary">Añadir al carrito</button>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <a href="index.html" class="footer-logo">Almacén De La Torre</a>
+            <div class="row text-center text-md-start">
+                <div class="col-md-4 mb-4">
+                    <a href="index.html" class="footer-logo d-block mb-2">Almacén De La Torre</a>
                     <p>Av. Lisandro De La Torre 8243, Del Viso, Buenos Aires</p>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 mb-4">
                     <h5>Contacto</h5>
-                    <p><i class="fas fa-phone-alt"></i> +54 11-2020 3535</p>
+                    <p class="mb-1"><i class="fas fa-phone-alt"></i> +54 11-2020 3535</p>
                     <p><i class="fas fa-envelope"></i> almacendelatorre@gmail.com</p>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 mb-4">
                     <h5>Seguinos!</h5>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <div class="d-flex justify-content-center justify-content-md-start">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
@@ -116,8 +221,59 @@
         </div>
     </footer>
 
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let cart = [];
+        let total = 0;
+
+        // Añadir productos al carrito
+        function addToCart(productName, productPrice) {
+            let existingProduct = cart.find(item => item.name === productName);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+
+            total += productPrice;
+            updateCart();
+        }
+
+        // Actualizar el carrito visualmente
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartItemCount = document.getElementById('cartItemCount');
+
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.classList.add('list-group-item');
+                li.innerHTML = `
+                    <strong>${item.name}</strong> x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}
+                `;
+                cartItems.appendChild(li);
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+            cartItemCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        // Agregar eventos a los botones "Añadir al carrito"
+        document.querySelectorAll(".btn-primary").forEach(button => {
+            button.addEventListener("click", () => {
+                const productCard = button.closest(".card");
+                const productName = productCard.querySelector(".card-title").textContent;
+                const productPrice = parseFloat(productCard.querySelector(".card-text").textContent.replace("$", ""));
+                addToCart(productName, productPrice);
+            });
+        });
+    </script>
 </body>
 </html>
+
+
 
