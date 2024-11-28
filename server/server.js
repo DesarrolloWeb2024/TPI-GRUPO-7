@@ -12,31 +12,31 @@ app.get('/api/products', (req, res) => {
   const products = [
     { 
       id: 1, 
-      name: 'Cámara web HD 1080P', 
-      oldPrice: 37500, 
-      price: 35000, 
+      name: 'Promo Fernet 750 ml Coca Cola 2,25 ml', 
+      oldPrice: 20000, 
+      price: 18000, 
       urlImg: 'https://http2.mlstatic.com/D_NQ_NP_795949-MLA46620925823_072021-O.webp'
     },
     {
       id: 2, 
-      name: 'Campera Keyboard programador',  
-      oldPrice: 11500, 
-      price: 11200, 
-      urlImg: 'https://purodiseno.lat/wp-content/uploads/2023/04/CAMPERA-TECLADO-2-821x1024.jpg' 
+      name: 'Dulce de Leche Vacalin 1 K',  
+      oldPrice: 5300, 
+      price: 4800, 
+      urlImg: 'https://bondialmundo.com/wp-content/uploads/2023/09/Dulce-de-leche-6.png' 
     },
     { 
       id: 3, 
-      name: 'Disco-solido interno kingston sata-960g',  
-      oldPrice: 18500, 
-      price: 18000, 
-      urlImg: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQwqHX1fVP2DUn6mEw05ukydZ6KOgkf0w3N3ZEHHJnDUW7WtxSEzdOZ73YxCn-FBC5kYxGeF4wy9zakpXVDOXbjQouNAmyH1LTbzkyuK2t0u9We1eAqfkFFDw&usqp=CAE' 
+      name: 'Cerealitas tostadas de arroz 160 G',  
+      oldPrice: 2800, 
+      price: 2400, 
+      urlImg: 'https://statics.dinoonline.com.ar/imagenes/large_460x460/2140656_1_l.jpg' 
     },
     { 
       id: 3, 
-      name: 'Taza Código De Programacion',  
-      oldPrice: 3500, 
-      price: 2200, 
-      urlImg: 'https://http2.mlstatic.com/D_NQ_NP_635341-MLA70663399583_072023-O.webp' 
+      name: 'Ala liquido para diluir rinde 3 litros',  
+      oldPrice: 5900, 
+      price: 5500, 
+      urlImg: 'https://stage.gpsm2.iurco.com/media/catalog/product/cache/0a44d03194bff726087c68ca93501384/7/7/7791290791008_1_.jpg' 
     },
     
     
